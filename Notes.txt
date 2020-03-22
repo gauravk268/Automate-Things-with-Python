@@ -1,0 +1,267 @@
+--------------------PYTHON BASICS--------------------------
+
+
+    The print() function displays the string value inside the 
+    parentheses on the screen. 
+
+    You can also use this function to put a blank line on the 
+    screen; just call print() with nothing in between the 
+    parentheses.
+
+    print('What is your age?') # ask for their age
+    myAge = input() 
+    print('You will be ' + str(int(myAge) + 1) + ' in a year.')
+
+
+
+
+--------------------FLOW CONTROL--------------------------
+
+
+    Ending a Program early with sys.exit()
+
+        import sys
+
+        while True:    
+            print('Type exit to exit.')    
+            response = input()    
+            if response == 'exit':        
+                sys.exit()    
+            print('You typed ' + response + '.')
+
+
+
+
+--------------------FUNCTIONS-----------------------------
+
+
+
+
+
+
+
+--------------------LISTS---------------------------------
+
+
+    While indexes start at 0 and go up, you can also use 
+    negative integers for the index. The integer value -1 
+    refers to the last index in a list, the value -2 refers 
+    to the second-to-last index in a list, and so on
+
+    spam[1] = 'aardvark' means “Assign the value at index 
+    1 in the list spam to the string 'aardvark'."
+
+    The del statement will delete values at an index in a 
+    list. All of the values in the list after the deleted 
+    value will be moved up one index
+
+
+Removing Values from Lists with del Statements 
+
+    >>> spam = ['cat', 'bat', 'rat', 'elephant'] 
+    >>> del spam[2] 
+    >>> spam 
+    ['cat', 'bat', 'elephant']
+
+
+The in and not in Operators
+
+    >>> 'howdy' in ['hello', 'hi', 'howdy', 'heyas'] 
+    True 
+    >>> spam = ['hello', 'hi', 'howdy', 'heyas'] 
+    >>> 'cat' in spam 
+    False 
+    >>> 'howdy' not in spam 
+    False 
+    >>> 'cat' not in spam 
+    True
+
+
+Finding a Value in a List with the index() Method
+
+    >>> spam = ['hello', 'hi', 'howdy', 'heyas'] 
+    >>> spam.index('hello') 
+    0
+
+
+append() and insert() Methods
+
+    >>> spam = ['cat', 'dog', 'bat'] 
+    >>> spam.append('moose')    
+    >> spam 
+    ['cat', 'dog', 'bat', 'moose']
+
+    >>> spam = ['cat', 'dog', 'bat'] 
+    >>> spam.insert(1, 'chicken') 
+    >>> spam 
+    ['cat', 'chicken', 'dog', 'bat']
+
+
+Removing Values from Lists with remove()
+
+    >>> spam = ['cat', 'bat', 'rat', 'elephant'] 
+    >>> spam.remove('bat') 
+    >>> spam 
+    ['cat', 'rat', 'elephant']
+
+
+Sorting the Values in a List with the sort() Method
+
+    >>> spam = [2, 5, 3.14, 1, -7] 
+    >>> spam.sort() 
+    >>> spam 
+    [-7, 1, 2, 3.14, 5] 
+    >>> spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants'] 
+    >>> spam.sort() 
+    >>> spam 
+    ['ants', 'badgers', 'cats', 'dogs', 'elephants']
+
+    >>> spam.sort(reverse=True) 
+    >>> spam 
+    ['elephants', 'dogs', 'cats', 'badgers', 'ants']
+
+list-like types: Strings and tuples
+    
+    >>> name = 'Zophie a cat' 
+    >>> newName = name[0:7] + 'the' + name[8:12] 
+    >>> name 
+    'Zophie a cat'
+    >>> newName 
+    'Zophie the cat'
+
+    >>> tuple(['cat', 'dog', 5]) 
+    ('cat', 'dog', 5) 
+    >>> list(('cat', 'dog', 5)) 
+    ['cat', 'dog', 5] 
+    >>> list('hello') 
+    ['h', 'e', 'l', 'l', 'o']
+
+
+
+
+--------------------Manipulating Strings -----------------
+
+
+The upper(), lower(), isupper(), and islower() String Methods
+
+    >>> spam = 'Hello world!' 
+    >>> spam = spam.upper() 
+    >>> spam 
+    'HELLO WORLD!' 
+    >>> spam = spam.lower() 
+    >>> spam 
+    'hello world!'
+
+    isalpha() returns True if the string consists only of 
+    letters and is not blank
+
+    isalnum() returns True if the string consists only of 
+    letters and numbers and is not blank. 
+
+    isdecimal() returns True if the string consists only 
+    of numeric characters and is not blank.
+
+    isspace() returns True if the string consists only 
+    of spaces, tabs, and newlines and is not blank.
+
+    istitle() returns True if the string consists only 
+    of words that begin with an uppercase letter followed 
+    by only lowercase letters.
+
+The startswith() and endswith() String Methods
+
+    The startswith() and endswith() methods return True 
+    if the string value they are called on begins or ends 
+    (respectively) with the string passed to the method; 
+    otherwise, they return False
+
+The join() and split() String Methods
+
+    The join() method is useful when you have a list of 
+    strings that need to be joined together into a single 
+    string value
+
+    The split() method does the opposite: It’s called on 
+    a string value and returns a list of strings
+
+Justifying Text with rjust(), ljust(), and center()
+
+    The rjust() and ljust() string methods return a padded 
+    version of the string they are called on, with spaces 
+    inserted to justify the text
+
+Removing Whitespace with strip(), rstrip(), and lstrip()
+
+    Sometimes you may want to strip off whitespace characters 
+    (space, tab, and newline) from the left side, right side, 
+    or both sides of a string. The strip() string method will 
+    return a new string without any whitespace characters 
+    at the beginning or end. The lstrip() and rstrip() 
+    methods will remove whitespace characters from the 
+    left and right ends, respectively. 
+
+Copying and Pasting Strings with the pyperclip Module 
+
+    The pyperclip module has copy() and paste() functions 
+    that can send text to and receive text from your 
+    computer’s clipboard
+
+
+
+
+--------PAttern mAtChing with regulAr exPreSSionS---------
+
+Matching Regex Objects 
+
+    >>> phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') 
+    >>> mo = phoneNumRegex.search('My number is 415-555-4242.') 
+    >>> print('Phone number found: ' + mo.group()) 
+    Phone number found: 415-555-4242
+
+Grouping with Parentheses
+
+    >>> phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)') 
+    >>> mo = phoneNumRegex.search('My number is 415-555-4242.') 
+    >>> mo.group(1) 
+    '415' 
+    >>> mo.group(2) 
+    '555-4242'
+
+Matching Multiple Groups with the Pipe
+
+    >>> heroRegex = re.compile (r'Batman|Tina Fey') >>> mo1 = heroRegex.search('Batman and Tina Fey.') >>> mo1.group() 'Batman'
+
+
+
+
+--------------------WEB SCRAPING--------------------------
+
+
+
+    TO open any url
+        import webbrowser
+        webbrowser.open('http://inventwithpython.com/')
+
+    For opening google maps for a given search option
+
+        'https:// www.google.com/maps/place/your_address_string'
+
+        import webbrowser, sys 
+        if len(sys.argv) > 1:
+            # Get address from command line.    
+            address = ' '.join(sys.argv[1:]
+
+
+        Step 3: Handle the Clipboard Content and Launch the 
+        Browser Make your code look like the following:
+
+
+    import webbrowser, sys, pyperclip
+    if len(sys.argv) > 1:
+        # Get address from command line.    
+        address = ' '.join(sys.argv[1:]) 
+    else:    
+        # Get address from clipboard.    
+        address = pyperclip.paste()
+        
+    webbrowser.open('https://www.google.com/maps/place/' + address)
